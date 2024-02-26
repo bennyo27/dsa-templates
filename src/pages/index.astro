@@ -94,16 +94,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         <section id="recent-posts">
           <h2>Recent Posts</h2>
           <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < 4 && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
+            {recentPosts.map(({ data, slug }, index) => (
+              <Card
+                href={`/posts/${slug}/`}
+                frontmatter={data}
+                secHeading={false}
+              />
+            ))}
           </ul>
         </section>
       )
