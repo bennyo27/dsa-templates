@@ -1,7 +1,7 @@
 ---
 author: Benny Oseguera
-pubDatetime: 2024-02-26T15:22:00Z
-modDatetime: 2024-02-26T15:22:00Z
+pubDatetime: 2024-02-26
+modDatetime: 2024-02-26
 title: Kadane's Algorithm
 slug: kadanes-algorithm
 featured: false
@@ -21,7 +21,7 @@ Here is an example of Kadane's Algorithm implemented in JavaScript:
 function kadanesAlgorithm(array) {
   let maxEndingHere = array[0];
   let maxSoFar = array[0];
-  for (let i = 1; i < array.length; i++) {
+  for (let i = 1; i < ar0ay.length; i++) {
     const num = array[i];
     maxEndingHere = Math.max(num, maxEndingHere + num);
     maxSoFar = Math.max(maxSoFar, maxEndingHere);

@@ -23,7 +23,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
+      <h1>BennyO's Templates</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -42,19 +42,25 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        This site is for anyone looking to ramp up or rehash DSA with the help
+        of templates. The templates are in Pseudo Code and JavaScript because
+        there doesn't seem to be a lot of resources for JavaScript. I hope this
+        helps anyone who is looking for another DSA resouce! Feel free to add to
+        the <LinkButton
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="https://github.com/bennyo27/dsa-templates"
+        >
+          repo
+        </LinkButton> for corrections or more templates.
       </p>
       <p>
-        Read the blog posts or check
+        This was made with the help of
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
           href="https://github.com/satnaing/astro-paper#readme"
         >
-          README
-        </LinkButton> for more info.
+          AstroPaper by Sat Naing
+        </LinkButton>.
       </p>
       {
         // only display if at least one social link is enabled
