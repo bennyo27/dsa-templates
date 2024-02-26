@@ -7,7 +7,7 @@ slug: kadanes-algorithm
 featured: false
 draft: false
 tags:
-  - arrays
+  - Arrays
 description: Kadane's Algorithm template.
 ---
 
