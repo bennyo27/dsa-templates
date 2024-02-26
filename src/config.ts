@@ -33,13 +33,13 @@ export const SOCIALS: SocialObjects = [
   {
     name: "LinkedIn",
     href: "https://github.com/benny-oseguera",
-    linkTitle: `${SITE.title} on LinkedIn`,
+    linkTitle: `Benny on LinkedIn`,
     active: true,
   },
   {
     name: "Mail",
     href: "mailto:oseguerabenny27@gmail.com",
-    linkTitle: `Send an email to ${SITE.title}`,
+    linkTitle: `Send an email to Benny`,
     active: true,
   },
   {
