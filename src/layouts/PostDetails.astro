@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Tag from "@components/Tag.astro";
+import Topic from "@components/Topic.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
@@ -10,10 +10,10 @@ import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  subtopic: CollectionEntry<"subtopics">;
 }
 
-const { post } = Astro.props;
+const { subtopic } = Astro.props;
 
 const {
   title,
@@ -23,14 +23,14 @@ const {
   canonicalURL,
   pubDatetime,
   modDatetime,
-  tags,
-} = post.data;
+  topics,
+} = subtopic.data;
 
-const { Content } = await post.render();
+const { Content } = await subtopic.render();
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
+  ogImageUrl ?? `/${topics[0]}/${slugifyStr(title)}.png`,
   Astro.url.origin
 ).href;
 
@@ -66,7 +66,7 @@ const layoutProps = {
     </button>
   </div>
   <main id="main-content">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
+    <h1 transition:name={slugifyStr(title)} class="topic-title">{title}</h1>
     <Datetime
       pubDatetime={pubDatetime}
       modDatetime={modDatetime}
@@ -78,7 +78,7 @@ const layoutProps = {
     </article>
 
     <ul class="my-8">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
+      {topics.map(topic => <Topic topic={slugifyStr(topic)} />)}
     </ul>
 
     <div
@@ -106,7 +106,7 @@ const layoutProps = {
   main {
     @apply mx-auto w-full max-w-3xl px-4 pb-12;
   }
-  .post-title {
+  .topic-title {
     @apply text-2xl font-semibold text-skin-accent;
   }
 </style>

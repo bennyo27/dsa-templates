@@ -6,7 +6,7 @@ title: Kadane's Algorithm
 slug: kadanes-algorithm
 featured: false
 draft: false
-tags:
+topics:
   - arrays
 description: Kadane's Algorithm template.
 ---

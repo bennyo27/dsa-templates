@@ -3,10 +3,10 @@ author: Benny Oseguera
 pubDatetime: 2024-02-26
 modDatetime: 2024-02-26
 title: Sliding Window
-slug: sliding-4
+slug: sliding-3
 featured: false
 draft: false
-tags:
+topics:
   - arrays
 description: Sliding Window template.
 ---
