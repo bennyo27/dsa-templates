@@ -17,7 +17,7 @@ const AccordionNav = () => {
   return (
     <Accordion type="single" collapsible className="w-full">
       {topics.map(({ topic }, index) => (
-        <AccordionItem key={`${topic + index}`} value="item-1">
+        <AccordionItem key={`${topic + index}`} value={`item-${index}`}>
           <AccordionTrigger>
             {topic.charAt(0).toUpperCase() + topic.slice(1)}
           </AccordionTrigger>
