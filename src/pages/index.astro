@@ -7,13 +7,13 @@ import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import TemplatesGrid from "@components/TemplatesGrid.astro";
 import Socials from "@components/Socials.astro";
-import getSortedPosts from "@utils/getSortedPosts";
+import getSortedSubtopics from "@utils/getSortedSubtopics";
 import { SOCIALS } from "@config";
 
-const posts = await getCollection("blog");
+const subtopics = await getCollection("subtopics");
 
-const sortedPosts = getSortedPosts(posts);
-const subtopics = sortedPosts.filter(({ data }) => !data.featured);
+const sortedSubtopics = getSortedSubtopics(subtopics);
+const unfeatured = sortedSubtopics.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -74,7 +74,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
     <Hr />
 
-    <TemplatesGrid items={subtopics} />
+    <TemplatesGrid items={unfeatured} />
   </main>
 
   <Footer />

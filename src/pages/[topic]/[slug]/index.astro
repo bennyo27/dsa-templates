@@ -1,0 +1,22 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PostDetails from "@layouts/PostDetails.astro";
+
+export interface Props {
+  subtopic: CollectionEntry<"subtopics">;
+}
+
+export async function getStaticPaths() {
+  const subtopics = await getCollection("subtopics", ({ data }) => !data.draft);
+  const subtopicResult = subtopics.map(subtopic => ({
+    params: { topic: subtopic.data.topics[0], slug: subtopic.slug },
+    props: { subtopic },
+  }));
+
+  return [...subtopicResult];
+}
+
+const { subtopic } = Astro.props;
+---
+
+<PostDetails subtopic={subtopic} />

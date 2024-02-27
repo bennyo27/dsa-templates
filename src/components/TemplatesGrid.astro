@@ -3,7 +3,7 @@ import Card from "@components/Card";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-  items: CollectionEntry<"blog">[];
+  items: CollectionEntry<"subtopics">[];
 }
 
 const { items } = Astro.props;
@@ -16,7 +16,7 @@ const { items } = Astro.props;
       <div class="grid list-none grid-cols-3">
         {items.map(({ data, slug }) => (
           <Card
-            href={`/${data.tags[0]}/${slug}/`}
+            href={`/${data.topics[0]}/${slug}/`}
             frontmatter={data}
             secHeading={false}
           />

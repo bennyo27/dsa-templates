@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import TopicSubtopics from "@layouts/TopicSubtopics.astro";
+import getSubtopicsByTopic from "@utils/getSubtopicsByTopic";
+import getUniqueTopics from "@utils/getUniqueTopics";
+
+export async function getStaticPaths() {
+  const subtopics = await getCollection("subtopics");
+
+  const topics = getUniqueTopics(subtopics);
+
+  return topics.map(({ topic }) => {
+    return {
+      params: { topic },
+      props: { topic, subtopics },
+    };
+  });
+}
+
+const { topic, subtopics } = Astro.props;
+
+const subtopicsByTopic = getSubtopicsByTopic(subtopics, topic);
+---
+
+<TopicSubtopics subtopics={subtopicsByTopic} {topic} />

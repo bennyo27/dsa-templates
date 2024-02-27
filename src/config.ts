@@ -7,7 +7,6 @@ export const SITE: Site = {
   title: "DSA-Templates",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
 
