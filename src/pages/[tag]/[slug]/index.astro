@@ -8,9 +8,8 @@ export interface Props {
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
-
   const postResult = posts.map(post => ({
-    params: { slug: post.slug },
+    params: { tag: post.data.tags[0], slug: post.slug },
     props: { post },
   }));
 
