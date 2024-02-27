@@ -1,0 +1,27 @@
+---
+import Card from "@components/Card";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  items: CollectionEntry<"blog">[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section id="templates">
+      <h2 class="text-lg">Templates</h2>
+      <div class="grid list-none grid-cols-3">
+        {items.map(({ data, slug }) => (
+          <Card
+            href={`/${data.tags[0]}/${slug}/`}
+            frontmatter={data}
+            secHeading={false}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
