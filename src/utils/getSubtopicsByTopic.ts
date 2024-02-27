@@ -1,12 +1,12 @@
 import type { CollectionEntry } from "astro:content";
-import getSortedPosts from "./getSortedPosts";
+import getSortedSubtopics from "./getSortedSubtopics";
 import { slugifyAll } from "./slugify";
 
 const getSubtopicsByTopic = (
   posts: CollectionEntry<"subtopics">[],
   topic: string
 ) =>
-  getSortedPosts(
+  getSortedSubtopics(
     posts.filter(post => slugifyAll(post.data.topics).includes(topic))
   );
 

@@ -7,12 +7,12 @@ import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import TemplatesGrid from "@components/TemplatesGrid.astro";
 import Socials from "@components/Socials.astro";
-import getSortedPosts from "@utils/getSortedPosts";
+import getSortedSubtopics from "@utils/getSortedSubtopics";
 import { SOCIALS } from "@config";
 
 const subtopics = await getCollection("subtopics");
 
-const sortedSubtopics = getSortedPosts(subtopics);
+const sortedSubtopics = getSortedSubtopics(subtopics);
 const unfeatured = sortedSubtopics.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
