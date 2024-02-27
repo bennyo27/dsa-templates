@@ -8,6 +8,7 @@ import {
 import getSubtopicsByTopic from "@/utils/getSubtopicsByTopic";
 import getUniqueTopics from "@/utils/getUniqueTopics";
 import { getCollection } from "astro:content";
+import { toUpperFirst } from "@/utils/toUpperFirst";
 
 const subtopics = await getCollection("subtopics");
 
@@ -18,11 +19,12 @@ const AccordionNav = () => {
     <Accordion type="single" collapsible className="w-full">
       {topics.map(({ topic }, index) => (
         <AccordionItem key={`${topic + index}`} value={`item-${index}`}>
-          <AccordionTrigger>
-            {topic.charAt(0).toUpperCase() + topic.slice(1)}
-          </AccordionTrigger>
-          {getSubtopicsByTopic(subtopics, topic).map(subtopic => (
-            <a href={`/${subtopic.data.topics[0]}/${subtopic.slug}`}>
+          <AccordionTrigger>{toUpperFirst(topic)}</AccordionTrigger>
+          {getSubtopicsByTopic(subtopics, topic).map((subtopic, index) => (
+            <a
+              href={`/${subtopic.data.topics[0]}/${subtopic.slug}`}
+              key={`${subtopic.slug}`}
+            >
               <AccordionContent>{subtopic.data.title}</AccordionContent>
             </a>
           ))}

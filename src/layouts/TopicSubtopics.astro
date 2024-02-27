@@ -5,6 +5,7 @@ import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import TemplatesGrid from "@/components/TemplatesGrid.astro";
+import { toUpperFirst } from "@/utils/toUpperFirst";
 
 export interface Props {
   subtopics: CollectionEntry<"subtopics">[];
@@ -17,12 +18,12 @@ const { subtopics, topic } = Astro.props;
 <Layout title={`${topic}`}>
   <Header activeNav="topic" />
   <Main
-    pageTitle={`${topic.charAt(0).toUpperCase() + topic.slice(1)}`}
+    pageTitle={`${toUpperFirst(topic)}`}
     titleTransition={topic}
     pageDesc={`All subtopics with ${topic}.`}
   >
     <h1 slot="title" transition:name={topic}>{`Topic:${topic}`}</h1>
-    <TemplatesGrid items={subtopics} />
+    <TemplatesGrid topics={[{ topic }]} subtopics={subtopics} />
   </Main>
   <Footer />
 </Layout>

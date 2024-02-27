@@ -9,11 +9,13 @@ import TemplatesGrid from "@components/TemplatesGrid.astro";
 import Socials from "@components/Socials.astro";
 import getSortedSubtopics from "@utils/getSortedSubtopics";
 import { SOCIALS } from "@config";
+import getUniqueTopics from "@/utils/getUniqueTopics";
 
 const subtopics = await getCollection("subtopics");
 
 const sortedSubtopics = getSortedSubtopics(subtopics);
 const unfeatured = sortedSubtopics.filter(({ data }) => !data.featured);
+const topics = getUniqueTopics(unfeatured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -73,8 +75,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     </section>
 
     <Hr />
-
-    <TemplatesGrid items={unfeatured} />
+    <br />
+    <TemplatesGrid topics={topics} subtopics={unfeatured} />
   </main>
 
   <Footer />

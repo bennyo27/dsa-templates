@@ -1,27 +1,38 @@
 ---
+import getSubtopicsByTopic from "@/utils/getSubtopicsByTopic";
+import { toUpperFirst } from "@/utils/toUpperFirst";
 import Card from "@components/Card";
 import type { CollectionEntry } from "astro:content";
 
-export interface Props {
-  items: CollectionEntry<"subtopics">[];
+interface Topic {
+  topic: string;
 }
 
-const { items } = Astro.props;
+export interface Props {
+  topics: Topic[];
+  subtopics: CollectionEntry<"subtopics">[];
+}
+
+const { topics, subtopics } = Astro.props;
 ---
 
-{
-  items.length > 0 && (
-    <section id="templates">
-      <h2 class="text-lg">Templates</h2>
-      <div class="grid list-none grid-cols-3">
-        {items.map(({ data, slug }) => (
-          <Card
-            href={`/${data.topics[0]}/${slug}/`}
-            frontmatter={data}
-            secHeading={false}
-          />
-        ))}
-      </div>
-    </section>
-  )
-}
+<section id="templates">
+  {
+    topics.map(({ topic }) => {
+      return (
+        <div>
+          <h2 class="text-lg">{toUpperFirst(topic)}</h2>
+          <div class="grid list-none grid-cols-3">
+            {getSubtopicsByTopic(subtopics, topic).map(({ data, slug }) => (
+              <Card
+                href={`/${data.topics[0]}/${slug}/`}
+                frontmatter={data}
+                secHeading={false}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    })
+  }
+</section>

@@ -22,4 +22,4 @@ const { topic, subtopics } = Astro.props;
 const subtopicsByTopic = getSubtopicsByTopic(subtopics, topic);
 ---
 
-<TopicSubtopics subtopics={subtopicsByTopic} {topic} />
+<TopicSubtopics {topic} subtopics={subtopicsByTopic} />
