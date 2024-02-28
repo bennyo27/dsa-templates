@@ -11,7 +11,7 @@ topics:
 description: Kadane's Algorithm template.
 ---
 
-## Kadane's Algorithm in JavaScript
+## Kadane's Algorithm
 
 _Time: O(n) Space: O(1)_
 

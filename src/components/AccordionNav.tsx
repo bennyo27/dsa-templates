@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionContent,
@@ -20,13 +19,15 @@ const AccordionNav = () => {
       {topics.map(({ topic }, index) => (
         <AccordionItem key={`${topic + index}`} value={`item-${index}`}>
           <AccordionTrigger>{toUpperFirst(topic)}</AccordionTrigger>
-          {getSubtopicsByTopic(subtopics, topic).map((subtopic, index) => (
-            <a
-              href={`/${subtopic.data.topics[0]}/${subtopic.slug}`}
-              key={`${subtopic.slug}`}
-            >
-              <AccordionContent>{subtopic.data.title}</AccordionContent>
-            </a>
+          {getSubtopicsByTopic(subtopics, topic).map(subtopic => (
+            <AccordionContent key={`${subtopic.slug}`}>
+              <a
+                href={`/${subtopic.data.topics[0]}/${subtopic.slug}`}
+                className="decoration-dashed underline-offset-4 hover:text-skin-accent"
+              >
+                {subtopic.data.title}
+              </a>
+            </AccordionContent>
           ))}
         </AccordionItem>
       ))}

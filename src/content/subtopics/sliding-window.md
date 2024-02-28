@@ -11,7 +11,7 @@ topics:
 description: Sliding Window template.
 ---
 
-## Sliding Window in JavaScript
+## Sliding Window
 
 _Time: O(n) Space: O(1)_
 
