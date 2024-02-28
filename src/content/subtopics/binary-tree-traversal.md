@@ -2,16 +2,16 @@
 author: Benny Oseguera
 pubDatetime: 2024-02-27
 modDatetime: 2024-02-27
-title: BST Traversal
+title: Binary Tree Traversal
 slug: bst-traversal
 featured: false
 draft: false
 topics:
   - binary-tree
-description: BST Traversal template.
+description: Binary Tree Traversal template.
 ---
 
-## BST in JavaScript
+## Binary Tree Traversal
 
 _Time: O(n) Space: O(n)_
 
