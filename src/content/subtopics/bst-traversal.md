@@ -8,7 +8,7 @@ featured: false
 draft: false
 topics:
   - binary-tree
-description: Kadane's Algorithm template.
+description: BST Traversal template.
 ---
 
 ## BST in JavaScript
