@@ -38,7 +38,7 @@ Notice:
 As we move through the array, we are making the constant decision if the current element is greater than the current max,
 if it is then we take it. Then of course we check against the over all maximum.
 
-Example of Kadane's Algorithm implemented in JavaScript:
+Here is an example of Kadane's Algorithm implemented in JavaScript:
 
 ```javascript
 function kadanesAlgorithm(array) {
