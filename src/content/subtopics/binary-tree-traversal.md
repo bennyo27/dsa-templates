@@ -33,9 +33,9 @@ traversal(root)
 ```
 
 Notice:
-Our base case is if the root does not exist then return null. This will not always be the exact base case. We traverse the left and right paths respectively then return root.
+Our base case is to return null if the root does not exist. This will not always be the exact base case. We traverse the left and right paths respectively then return root.
 
-Example of traversing a Binary Tree implemented in JavaScript:
+Here is an example of traversing a Binary Tree implemented in Javascript:
 
 ```javascript
 function traversal(root) {

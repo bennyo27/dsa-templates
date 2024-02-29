@@ -115,9 +115,11 @@ Sample Question:
 
 ```javascript
 var findRedundantConnection = function (edges) {
+  // Initialize UnionFind
   let uf = new UnionFind();
 
   for ([x1, x2] of edges) {
+    // Check the edge for unity and if true then there is a redundant connection
     if (uf.union(x1, x2)) return [x1, x2];
   }
 };

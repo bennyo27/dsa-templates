@@ -45,6 +45,8 @@ Notice:
 The window is determined by right - left, if some condition is met we move the left side of the window. Meanwhile the right is moving as
 well to progress through the rest of the array.
 
+Here is an example of the Sliding Window Fixed implemented in JavaScript:
+
 ```javascript
 function slidingWindow(array, k) {
   let left = 0;
@@ -118,6 +120,8 @@ slidingWindow(array, k)
 
 Notice:
 We switched the if with a while loop.
+
+Here is an example of the Sliding Window Variable implemented in JavaScript:
 
 ```javascript
 function slidingWindow(array) {
