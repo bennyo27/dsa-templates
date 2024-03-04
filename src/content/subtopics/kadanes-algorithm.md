@@ -24,14 +24,14 @@ Here is an example of Kadane's Algorithm implemented in Pseudo Code:
 
 ```javascript
 kadanesAlgorithm(array)
-  currentMaximum = array[0];
-  overallMaximum = array[0];
+  currentMaximum = 0;
+  overallMaximum = 0;
 
   for each element of array
     currentMaximum = Maximum of (currentMax + element, element);
     overallMaximum = Maximum of (overallMaximum, currentMaximum);
 
-  return maxSoFar;
+  return overallMaximum;
 ```
 
 Notice:
@@ -42,15 +42,15 @@ Here is an example of Kadane's Algorithm implemented in JavaScript:
 
 ```javascript
 function kadanesAlgorithm(array) {
-  let maxEndingHere = array[0];
-  let maxSoFar = array[0];
+  let currentMaximum = 0;
+  let overallMaximum = 0;
 
   for (let i = 0; i < array.length; i++) {
     const num = array[i];
-    maxEndingHere = Math.max(num, maxEndingHere + num);
-    maxSoFar = Math.max(maxSoFar, maxEndingHere);
+    currentMaximum = Math.max(currentMaximum + num, num);
+    overallMaximum = Math.max(overallMaximum, currentMaximum);
   }
-  return maxSoFar;
+  return overallMaximum;
 }
 ```
 
